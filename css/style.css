@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    font-family: 'Commissioner', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    --moderate-cyan: #3cb4ac;
+    --dark-cyan: hsl(176, 72%, 28%);
+    --black: hsl(0, 0%, 0%);
+    --dark-gray: hsl(0, 0%, 48%);
+}
+
+body {
+    line-height: 1.6;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media (min-width: 280px) {
+    .container {
+        background: #FAFAFA;
+        width: 100%;
+    }
+    .container>* {
+        width: 80%;
+        margin: 0;
+    }
+    .container header {
+        background-image: url("../images/image-hero-mobile.jpg");
+        background-size: cover;
+        height: 285px;
+        width: 100%;
+    }
+    header {
+        width: 100%;
+        height: 100%;
+    }
+    nav {
+        display: flex;
+    }
+    .logo-hamburger {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    .logo-hamburger.modal-active {
+        position: relative;
+        z-index: 20;
+    }
+    .hamburger {
+        cursor: pointer;
+        height: 25px;
+    }
+    .hamburger:active {
+        transform: scale(0.98);
+    }
+    .menu-open {
+        display: block;
+    }
+    .menu-close {
+        display: none;
+    }
+    .hamburger.open .menu-open {
+        display: none;
+    }
+    .hamburger.open .menu-close {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        border-radius: 5px;
+        width: 40%;
+        list-style: none;
+        align-items: center;
+    }
+    .nav-links li {
+        flex: 1;
+    }
+    .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.85rem;
+    }
+    .nav-links li a:hover {
+        text-decoration: underline;
+    }
+    .modal-nav-container {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgb(0, 0, 0, 0.5);
+        z-index: 10;
+        top: 0;
+        left: 0;
+    }
+    .modal-nav-container.active {
+        display: block;
+    }
+    .modal-nav-container .modal-nav {
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: 20px;
+        background: white;
+        color: black;
+        width: 90%;
+        list-style: none;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+    }
+    .modal-nav li {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+        width: 100%;
+        padding: 20px 0;
+    }
+    .modal-nav li a {
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.2rem;
+        margin-left: 20px;
+    }
+    .modal-nav li a:hover {
+        text-decoration: underline;
+    }
+    .modal-nav li:last-child {
+        border-bottom: none;
+    }
+    .pledge-app {
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        top: -70px;
+    }
+    .pledge-app>* {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 35px 20px;
+        margin-bottom: 30px;
+    }
+    .pledge-app p {
+        color: var(--dark-gray);
+        margin: 20px 0;
+    }
+    .pledge-intro-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pledge-app-top-logo {
+        position: relative;
+        top: -60px;
+    }
+    .pledge-app-top-desc h1 {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .pledge-app-top-desc p {
+        color: var(--dark-gray);
+        text-align: center;
+        margin: 20px 0;
+    }
+    .pledge-app-top-bookmark {
+        display: flex;
+        height: 55px;
+    }
+    .pledge-app-top-bookmark button {
+        flex-basis: 80%;
+        margin-right: 10px;
+        background: var(--moderate-cyan);
+        color: white;
+        border: none;
+        border-radius: 50px;
+    }
+    .pledge-app-top-bookmark button:hover {
+        background: var(--dark-cyan);
+    }
+    .pledge-app-top-bookmark button:active {
+        transform: scale(0.98);
+    }
+    .pledge-app__icon-bookmark {
+        cursor: pointer;
+        display: flex;
+    }
+    .pledge-app__icon-bookmark svg {
+        position: relative;
+        z-index: 2;
+    }
+    .pledge-app__icon-bookmark.active svg circle {
+        fill: var(--dark-cyan);
+    }
+    .pledge-app__icon-bookmark.active svg path {
+        fill: white;
+    }
+    .pledge-app__icon-bookmark span {
+        height: 100%;
+        width: 160px;
+        background: rgba(128, 128, 128, 0.2);
+        color: var(--dark-gray);
+        border-radius: 30px;
+        padding-left: 25px;
+        position: relative;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        left: -40px;
+        font-weight: 700;
+    }
+    .pledge-app__icon-bookmark.active span {
+        color: var(--dark-cyan);
+    }
+    .info-nums-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .info-nums {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 20px 0px;
+    }
+    .info-nums:first-of-type {
+        padding-top: 0;
+    }
+    .info-nums::after {
+        content: "";
+        display: block;
+        width: 30%;
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        background: rgba(128, 128, 128, 0.2);
+    }
+    .info-nums:nth-of-type(3)::after {
+        display: none;
+    }
+    .info-nums h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .info-nums p {
+        margin: 0px 0px;
+    }
+    .slider-info {
+        width: 100%;
+        height: 15px;
+        border-radius: 20px;
+        background: rgba(128, 128, 128, 0.2);
+    }
+    .slider-percent {
+        height: 100%;
+        border-radius: 20px;
+        background: var(--dark-cyan);
+    }
+    /* MAIN SECTION CARD - make pledges */
+    .make-pledges {
+        display: flex;
+        flex-direction: column;
+    }
+    .make-pledges-intro {
+        display: flex;
+        flex-direction: column;
+    }
+    .pledge-card {
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 8px;
+        padding: 25px 20px;
+        margin: 20px 0;
+    }
+    .pledge-card-top p {
+        color: var(--moderate-cyan);
+        margin-top: 0px;
+        font-weight: 500;
+    }
+    .card-left-btn-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .pledge-card-left {
+        display: flex;
+        align-items: center;
+    }
+    .pledge-card-left p {
+        margin-left: 5px;
+    }
+    .pledge-card-button button {
+        width: 70%;
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+        background: var(--moderate-cyan);
+        color: white;
+        font-weight: 700;
+    }
+    .pledge-card-button button:hover {
+        background: var(--dark-cyan);
+    }
+    .has-pledge {
+        display: block;
+    }
+    .out-pledge {
+        display: none;
+    }
+    /* MAIN CARD ACTIVE */
+    .pledge-card.no-more-pledge {
+        opacity: 0.7;
+    }
+    .pledge-card.no-more-pledge .has-pledge {
+        display: none;
+    }
+    .pledge-card.no-more-pledge .out-pledge {
+        display: block;
+        background: var(--dark-gray);
+        cursor: default;
+    }
+    /* MODAL DEFAULT */
+    .modal-select {
+        display: none;
+    }
+    .modal-select.open {
+        overflow-y: auto;
+        position: fixed;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        height: 100%;
+        background: rgb(0, 0, 0, 0.5);
+        z-index: 4;
+    }
+    .modal-wrapper {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        background: white;
+        position: relative;
+        top: 150px;
+        padding: 35px 20px;
+        margin-bottom: 400px;
+        text-align: center;
+        z-index: 5;
+    }
+    .modal-select-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-select-title h3 {
+        font-weight: 800;
+    }
+    .modal-select-title svg {
+        position: relative;
+        top: 3px;
+    }
+    .close-modal {
+        cursor: pointer;
+    }
+    .close-modal:hover .close-svg {
+        fill: var(--black);
+        opacity: 1;
+    }
+    .close-modal:active .close-svg {
+        transform: scale(0.9);
+    }
+    .modal-select-desc p {
+        padding: 20px 0;
+        text-align: left;
+        font-size: 0.9rem;
+        color: var(--dark-gray);
+    }
+    .modal-card {
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    .modal-card.check {
+        border: 2px solid var(--moderate-cyan);
+    }
+    .modal-card>* {
+        padding: 25px 20px;
+    }
+    .modal-card p {
+        color: var(--dark-gray);
+    }
+    .modal-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .radio-container {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .checkmark {
+        width: 70%;
+        height: 70%;
+        border-radius: 100%;
+        background: var(--dark-cyan);
+        display: none;
+        position: relative;
+    }
+    .modal-card.check .modal-card-top .radio-container .checkmark {
+        display: block;
+    }
+    .modal-card.out .modal-card-top .radio-container {
+        cursor: default;
+    }
+    .modal-select-title-text {
+        flex-basis: 80%;
+        font-size: 0.9rem;
+        text-align: left;
+        cursor: pointer;
+    }
+    .modal-select-title-text:hover {
+        color: var(--moderate-cyan);
+    }
+    .modal-select-title-text h3 {
+        font-weight: 800;
+    }
+    .modal-select-title-text p {
+        color: var(--moderate-cyan);
+        font-weight: 600;
+    }
+    .modal-card-text p {
+        margin: 0;
+    }
+    .modal-card-left {
+        display: flex;
+        align-items: center;
+    }
+    .modal-card-left h1 {
+        margin-right: 5px;
+        font-size: 1.4rem;
+        font-weight: 800;
+    }
+    .modal-card-controller {
+        display: none;
+    }
+    .modal-card.check .modal-card-controller {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        border-top: 1px solid rgba(128, 128, 128, 0.2);
+        width: 100%;
+    }
+    .modal-card.out {
+        opacity: 0.5;
+    }
+    .modal-card-controller p {
+        text-align: center;
+        margin: 0;
+    }
+    .modal-card-controller label {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 85%;
+    }
+    .modal-card-controller label>* {
+        padding: 15px;
+        border-radius: 50px;
+    }
+    .modal-card-controller label input {
+        width: 45%;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        padding-left: 35px;
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    .modal-card-controller label input:focus {
+        outline: none;
+        border: 1px solid var(--dark-cyan);
+    }
+    .modal-card-controller label span {
+        position: absolute;
+        left: 3px;
+        top: -2px;
+        font-weight: var(--dark-gray);
+        color: rgba(128, 128, 128, 0.5);
+        font-weight: 700;
+    }
+    .modal-card-controller label input:focus+span {
+        display: block;
+        margin-right: 10px;
+    }
+    .modal-card-controller label button {
+        width: 50%;
+        border: none;
+        color: white;
+        background: var(--moderate-cyan);
+        transition: 0.2s all;
+    }
+    .modal-card-controller label button:hover {
+        background: var(--dark-cyan);
+    }
+    .modal-card-controller label button:active {
+        transform: scale(0.98);
+    }
+    .modal-card.out .modal-select-title-text:hover h3 {
+        color: var(--black);
+    }
+    /* MODAL SUCCESS */
+    .modal-success {
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgb(0, 0, 0, 0.5);
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+    }
+    .modal-success.open {
+        display: flex;
+    }
+    .modal-complete {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 10px;
+        background: white;
+        border-radius: 10px;
+    }
+    .svg-loader {
+        display: none;
+    }
+    .modal-complete.load .svg-loader {
+        display: block;
+        transform: scale(0.4);
+    }
+    .modal-complete.load .modal-finish {
+        display: none;
+    }
+    .modal-complete>* {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .modal-success-desc p {
+        margin: 20px;
+        color: var(--dark-gray);
+    }
+    .modal-success-thanks h3 {
+        margin: 10px;
+    }
+    .modal-success-btn button {
+        width: 140px;
+        border-radius: 50px;
+        border: none;
+        color: white;
+        background: var(--moderate-cyan);
+        transition: 0.2s all;
+        padding: 20px;
+        font-weight: 700;
+    }
+    .modal-success-btn button:hover {
+        background: var(--dark-cyan);
+    }
+    .modal-success-btn button:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pledge-app {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .container header {
+        background-image: url("../images/image-hero-desktop.jpg");
+        background-size: cover;
+        height: 370px;
+        width: 100%;
+    }
+    nav {
+        padding: 20px 10%;
+    }
+    .nav-links {
+        display: flex;
+    }
+    .hamburger {
+        display: none;
+    }
+    .modal-nav-container.active {
+        display: none;
+    }
+    .info-nums-container {
+        flex-direction: row;
+    }
+    .info-nums {
+        flex-direction: column;
+        flex-basis: 30%;
+        align-items: center;
+        justify-content: center;
+        margin-left: 45px;
+    }
+    .info-nums:first-of-type {
+        padding: 0;
+        margin-left: 0;
+    }
+    .info-nums::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 60px;
+        position: absolute;
+        right: 0;
+        top: 20%;
+        background: rgba(128, 128, 128, 0.2);
+    }
+    .info-nums:first-of-type {
+        flex-basis: 40%;
+    }
+    .info-nums h1 {
+        text-align: left;
+        width: 90%;
+    }
+    .info-nums p {
+        text-align: left;
+        width: 90%;
+    }
+    .pledge-app {
+        top: -100px;
+    }
+    .pledge-app__icon-bookmark span {
+        display: flex;
+    }
+    .slider-info {
+        margin-top: 30px;
+    }
+    .pledge-card-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-left-btn-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pledge-card-button button {
+        width: 150px;
+    }
+    .modal-wrapper {
+        width: 51%;
+        left: 7px;
+        border-radius: 5px;
+    }
+    .make-pledges {
+        padding: 35px;
+    }
+    .modal-select-title-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .modal-select-title-text h3 {
+        margin-right: 10px;
+    }
+    .modal-card {
+        position: relative;
+    }
+    .modal-card-text p {
+        text-align: left;
+    }
+    .modal-card-left {
+        position: absolute;
+        top: -2px;
+        right: 0;
+    }
+    .modal-card.check .modal-card-controller {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-card.check .modal-card-controller p {
+        padding-left: 20px;
+    }
+    .modal-complete {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .pledge-app {
+        width: 40%;
+        margin: 0 auto;
+    }
+    .modal-wrapper {
+        width: 40%;
+        left: 7px;
+    }
+    .modal-complete {
+        width: 30%;
+    }
+    .nav-links {
+        width: 30%;
+    }
+}
