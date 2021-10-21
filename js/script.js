@@ -47,6 +47,9 @@ const openModalBtns = document.querySelectorAll(".has-pledge");
 const mainModal = document.querySelector(".modal-select");
 const pledgeApp = document.querySelector(".pledge-app");
 const closeModal = document.querySelector(".close-modal");
+const backProject = document.querySelector(".back-project");
+
+backProject.addEventListener("click", () => mainModal.classList.add("open"));
 
 openModalBtns.forEach((btn, index) => {
   btn.addEventListener("click", function () {
